@@ -1,5 +1,5 @@
 <script>
-	import {addStat, getStatIdByName} from "$lib/data/base/stats.js";
+	import {getStatIdByName} from "$lib/data/base/stats.js";
 	import {Stat} from "$lib/data/base/stats.js";
 
 	export let stats = [];

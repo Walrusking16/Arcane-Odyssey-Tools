@@ -1,5 +1,4 @@
 import {BaseData} from "$lib/data/base/baseData.js";
-import {rarity as Rarity} from "$lib/data/base/rarity.js";
 import {Type} from "$lib/data/base/types.js";
 import {addStat, Stat} from "$lib/data/base/stats.js";
 

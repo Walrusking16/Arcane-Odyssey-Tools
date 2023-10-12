@@ -1,5 +1,3 @@
-import {getRarityName, rarity as Rarity} from "./rarity.js";
-
 export class BaseItem {
 	constructor(id, name, level, description, image, type, stats, subTypes, gemSlots) {
 		this.id = id;
@@ -11,9 +9,5 @@ export class BaseItem {
 		this.stats = stats;
 		this.subTypes = subTypes;
 		this.gemSlots = gemSlots;
-	}
-
-	getRarityName() {
-		return getRarityName(this.rarity);
 	}
 }
