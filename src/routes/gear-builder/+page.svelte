@@ -102,6 +102,10 @@
 			}
 		});
 
+		Object.values(stats).forEach((stat) => {
+			stat.displayValue = stat.value;
+		});
+
 		return Object.values(stats);
 	}
 
