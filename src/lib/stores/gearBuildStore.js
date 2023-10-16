@@ -24,6 +24,7 @@ function recalculateItem(item) {
 		item.enchant.stats.forEach((stat) => {
 			if (!stat.multiply) {
 				item.extraStats.push(stat);
+				return;
 			}
 
 			item.extraStats.push({...stat, value: getMultipliedScrollValue(stat, item.level)});
