@@ -1,0 +1,49 @@
+import { addStat, Stat } from '$lib/data/base/stats.js';
+
+export const Modifier = {
+	ATLANTEAN: 'atlantean'
+};
+
+export const ModifierData = {
+	[Modifier.ATLANTEAN]: {
+		stats: [
+			addStat(Stat.POWER, 12),
+			addStat(Stat.DEFENSE, 97),
+			addStat(Stat.ATTACK_SIZE, 18),
+			addStat(Stat.ATTACK_SPEED, 18),
+			addStat(Stat.AGILITY, 18),
+			addStat(Stat.INTENSITY, 18)
+		],
+		apply: (stats, item) => {
+			let statIndex = 0;
+			const itemStats = [...item.baseStats, ...item.getGemStats()];
+
+			while (statIndex < stats.length) {
+				const stat = stats[statIndex];
+
+				if (itemStats.find((itemStat) => itemStat.name === stat.name)) {
+					statIndex++;
+				} else {
+					item.extraStats.push(stat);
+					break;
+				}
+			}
+
+			item.extraStats.push(addStat(Stat.INSANITY, 1));
+
+			return item;
+		}
+	}
+};
+
+export function applyModifications(item) {
+	item.extraStats = [];
+
+	if (item.modifiers) {
+		item.modifiers.forEach((modifier) => {
+			item = ModifierData[modifier].apply(ModifierData[modifier].stats, item);
+		});
+	}
+
+	return item;
+}

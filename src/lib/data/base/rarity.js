@@ -3,22 +3,22 @@ export const rarity = {
 	UNCOMMON: 1,
 	RARE: 2,
 	EXOTIC: 3,
-	LEGENDARY: 4,
-}
+	LEGENDARY: 4
+};
 
 export const getRarityName = (rarity) => {
 	switch (rarity) {
 		case 0:
-			return "Common";
+			return 'Common';
 		case 1:
-			return "Uncommon";
+			return 'Uncommon';
 		case 2:
-			return "Rare";
+			return 'Rare';
 		case 3:
-			return "Exotic";
+			return 'Exotic';
 		case 4:
-			return "Legendary";
+			return 'Legendary';
 		default:
-			return "Unknown";
+			return 'Unknown';
 	}
-}
+};

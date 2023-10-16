@@ -3,7 +3,6 @@
 </svelte:head>
 
 <div>
-	<p>
-		Info about the site
-	</p>
+	<p>// TODO: Add info about the gear builder</p>
+	<p>// TODO: Change log</p>
 </div>

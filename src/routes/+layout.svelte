@@ -1,6 +1,7 @@
 <script>
-	import "../app.postcss";
-	import SideNavbar from "$lib/components/SideNavbar.svelte";
+	import '../app.postcss';
+	import SideNavbar from '$lib/components/SideNavbar.svelte';
+	import Footer from '$lib/components/Footer.svelte';
 </script>
 
 <div class="mt-4 space-y-8">
@@ -9,8 +10,10 @@
 	<div class="flex justify-center items-center">
 		<div class="w-3/4">
 			<SideNavbar>
-				<slot/>
+				<slot />
 			</SideNavbar>
 		</div>
 	</div>
+
+	<Footer />
 </div>

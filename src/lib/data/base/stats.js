@@ -7,8 +7,8 @@ export const Stat = {
 	INTENSITY: 5,
 	INSANITY: 6,
 	WARDING: 7,
-	DRAWBACK: 8,
-}
+	DRAWBACK: 8
+};
 
 export const stats = {
 	[Stat.POWER]: newStat(
@@ -36,13 +36,13 @@ export const stats = {
 		'Speed_Icon.webp',
 		'#f9ffff',
 		'#798ccf'
-		),
+	),
 	[Stat.ATTACK_SIZE]: newStat(
 		'Attack Size',
 		'Attack size increases the size of all kinds of attacks. It is a percentage based stats, so its exact scaling is currently unknown.',
 		'Size_Icon.webp',
 		'#00ff00'
-		),
+	),
 	[Stat.INTENSITY]: newStat(
 		'Intensity',
 		'Intensity increases the duration of Status Effects inflicted by the player, increases the strength of the effects from Focus and Aura, increases the size of Magic rubble, puddles and clouds, and reduces the cooldown of Ultimate Art attacks.',
@@ -68,79 +68,83 @@ export const stats = {
 		'Drawback.webp',
 		'#dc4040'
 	)
-}
+};
 
 export const getStatName = (id) => {
 	switch (id) {
 		case Stat.POWER:
-			return 'Power'
+			return 'Power';
 		case Stat.DEFENSE:
-			return 'Defense'
+			return 'Defense';
 		case Stat.AGILITY:
-			return 'Agility'
+			return 'Agility';
 		case Stat.ATTACK_SPEED:
-			return 'Attack Speed'
+			return 'Attack Speed';
 		case Stat.ATTACK_SIZE:
-			return 'Attack Size'
+			return 'Attack Size';
 		case Stat.INTENSITY:
-			return 'Intensity'
+			return 'Intensity';
 		case Stat.INSANITY:
-			return 'Insanity'
+			return 'Insanity';
 		case Stat.WARDING:
-			return 'Warding'
+			return 'Warding';
 		case Stat.DRAWBACK:
-			return 'Drawback'
+			return 'Drawback';
 		default:
 			return 'Unknown Stat';
 	}
-}
+};
 
 export const getStatIdByName = (name) => {
 	switch (name) {
 		case 'Power':
-			return Stat.POWER
+			return Stat.POWER;
 		case 'Defense':
-			return Stat.DEFENSE
+			return Stat.DEFENSE;
 		case 'Agility':
-			return Stat.AGILITY
+			return Stat.AGILITY;
 		case 'Attack Speed':
-			return Stat.ATTACK_SPEED
+			return Stat.ATTACK_SPEED;
 		case 'Attack Size':
-			return Stat.ATTACK_SIZE
+			return Stat.ATTACK_SIZE;
 		case 'Intensity':
-			return Stat.INTENSITY
+			return Stat.INTENSITY;
 		case 'Insanity':
-			return Stat.INSANITY
+			return Stat.INSANITY;
 		case 'Warding':
-			return Stat.WARDING
+			return Stat.WARDING;
 		case 'Drawback':
-			return Stat.DRAWBACK
+			return Stat.DRAWBACK;
 		default:
 			return -1;
 	}
-}
+};
 
-export const addStat = (id, value) => {
-	const stat = stats[id]
+export const addStat = (id, value, multiply) => {
+	multiply = multiply ?? true;
+
+	const stat = stats[id];
 
 	if (!stat) {
-		console.error(`Stat with id ${id} does not exist.`)
+		console.error(`Stat with id ${id} does not exist.`);
 		return {};
 	}
 
 	return {
 		...stat,
 		value,
-	}
-}
+		multiply,
+		displayValue: value
+	};
+};
 
 function newStat(name, description, image, valueColor, valueBorderColor) {
-		return {
-			name,
-			description,
-			image,
-			valueColor,
-			valueBorderColor: valueBorderColor ?? '',
-			value: 0,
-		}
+	return {
+		name,
+		description,
+		image,
+		valueColor,
+		valueBorderColor: valueBorderColor ?? '',
+		value: 0
+	};
 }

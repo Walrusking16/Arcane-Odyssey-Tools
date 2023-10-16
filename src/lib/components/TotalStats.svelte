@@ -1,13 +1,7 @@
 <script>
-	import {getStatIdByName} from "$lib/data/base/stats.js";
-	import {Stat} from "$lib/data/base/stats.js";
+	import Stat from '$lib/components/Stat.svelte';
 
 	export let stats = [];
-
-	function getIconSize(stat) {
-		const id = getStatIdByName(stat.name);
-		return (id === Stat.DRAWBACK || id === Stat.WARDING) ? 'w-8' : 'w-10'
-	}
 </script>
 
 <div class="bg-black/50 rounded p-2">
@@ -16,10 +10,7 @@
 	{:else}
 		<div class="grid justify-items-center grid-cols-2 md:grid-cols-3 gap-2">
 			{#each stats as stat}
-				<div class="flex space-x-2 items-center">
-					<img class="{getIconSize(stat)} text-gray-100" src="icons/{stat.image}" alt={stat.name}>
-					<p class="text-lg" style="color: {stat.valueColor};text-shadow: 0 0 1px {stat.valueBorderColor};">{stat.value}</p>
-				</div>
+				<Stat {stat} />
 			{/each}
 		</div>
 	{/if}
