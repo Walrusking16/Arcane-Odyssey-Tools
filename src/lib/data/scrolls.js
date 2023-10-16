@@ -22,7 +22,6 @@ export default [
 	new BaseScroll('Explosive', [addStat(Stat.ATTACK_SIZE, 3)]),
 	new BaseScroll('Swift', [addStat(Stat.ATTACK_SPEED, 1.5)]),
 	new BaseScroll('Brisk', [addStat(Stat.ATTACK_SPEED, 3)]),
-	new BaseScroll('Brisk', [addStat(Stat.ATTACK_SPEED, 3)]),
 	new BaseScroll('Charged', [addStat(Stat.POWER, 0.65), addStat(Stat.INTENSITY, 1.5)]),
 	new BaseScroll('Virtuous', [addStat(Stat.DEFENSE, 4.333), addStat(Stat.WARDING, 1, false)]),
 	new BaseScroll('Hasty', [addStat(Stat.ATTACK_SPEED, 1.5), addStat(Stat.AGILITY, 1.5)]),
