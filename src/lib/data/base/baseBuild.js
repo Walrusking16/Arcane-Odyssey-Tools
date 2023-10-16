@@ -1,4 +1,4 @@
-import {getStatIdByName} from "$lib/data/base/stats.js";
+import { getStatIdByName } from '$lib/data/base/stats.js';
 
 export class BaseBuild {
 	constructor(accessories, chestplate, leggings) {
@@ -8,7 +8,7 @@ export class BaseBuild {
 		this.gems = [];
 	}
 
-	getMaxGemSlots() {
+	getGemSlotsRemaining() {
 		const items = this.getItems();
 		let maxGemSlots = 0;
 
@@ -30,23 +30,20 @@ export class BaseBuild {
 				const combinedStat = combinedStats.find((s) => s.name === stat.name);
 				if (combinedStat) {
 					combinedStat.value += stat.value;
-				}
-				else {
-					combinedStats.push({...stat});
+				} else {
+					combinedStats.push({ ...stat });
 				}
 			}
 		}
 
-		// get the gem stats
 		for (let i = 0; i < this.gems.length; i++) {
 			const gem = this.gems[i];
 			for (const stat of Object.values(gem.stats)) {
 				const combinedStat = combinedStats.find((s) => s.name === stat.name);
 				if (combinedStat) {
 					combinedStat.value += stat.value;
-				}
-				else {
-					combinedStats.push({...stat});
+				} else {
+					combinedStats.push({ ...stat });
 				}
 			}
 		}
