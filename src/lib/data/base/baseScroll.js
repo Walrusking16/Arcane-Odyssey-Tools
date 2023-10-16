@@ -1,6 +1,5 @@
 import { getMultipliedScrollValue } from '$lib/data/scrolls.js';
-
-const MAX_LEVEL = 120;
+import { MAX_LEVEL } from '$lib/utils/level.js';
 
 export class BaseScroll {
 	constructor(name, stats) {
@@ -10,7 +9,7 @@ export class BaseScroll {
 		this.description = `Stats shown are based on level ${MAX_LEVEL} item`;
 
 		this.stats.forEach((stat) => {
-			stat.displayValue = getMultipliedScrollValue(stat, MAX_LEVEL);
+			stat.displayValue = getMultipliedScrollValue(stat);
 		});
 	}
 

@@ -1,0 +1,1 @@
+export let MAX_LEVEL = 125;

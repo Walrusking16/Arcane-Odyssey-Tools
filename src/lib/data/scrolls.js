@@ -1,9 +1,10 @@
 import { addStat, Stat } from '$lib/data/base/stats.js';
 import { BaseScroll } from '$lib/data/base/baseScroll.js';
+import { MAX_LEVEL } from '$lib/utils/level.js';
 
-export function getMultipliedScrollValue(stat, level) {
+export function getMultipliedScrollValue(stat) {
 	if (stat.multiply) {
-		return Math.floor(stat.value * (level / 10));
+		return Math.floor(stat.value * (MAX_LEVEL / 10));
 	}
 
 	return stat.value;
