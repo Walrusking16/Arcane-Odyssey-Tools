@@ -8,7 +8,7 @@
 		"preview": "vite preview",
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
 		"format": "prettier --plugin-search-dir . --write .",
-		"deploy": "gh-pages -d build -t true",
+		"deploy": "echo arcaneodyssey.tools > ./build/CNAME && gh-pages -d build -t true",
 		"release": "standard-version --no-verify",
 		"commit": "cz"
 	},

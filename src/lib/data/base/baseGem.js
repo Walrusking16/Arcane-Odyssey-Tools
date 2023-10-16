@@ -7,7 +7,7 @@ export class BaseGem {
 		this.image = [];
 
 		this.gemNames.forEach((gemName) => {
-			this.image.push(`/gear/gems/${gemName.toLowerCase().replace(' ', '_')}.webp`);
+			this.image.push(`gear/gems/${gemName.toLowerCase().replace(' ', '_')}.webp`);
 		});
 	}
 
