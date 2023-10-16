@@ -2,6 +2,7 @@
 	import { getStatIdByName, Stat } from '$lib/data/base/stats.js';
 	import { createPopperActions } from 'svelte-popperjs';
 	import { fade } from 'svelte/transition';
+	import { base } from '$app/paths';
 
 	export let stat;
 
@@ -24,7 +25,7 @@
 		on:pointerenter={() => (showStatInfo = true)}
 		on:pointerleave={() => (showStatInfo = false)}
 	>
-		<img class="{getIconSize(stat)} text-gray-100" src="icons/{stat.image}" alt={stat.name} />
+		<img class="{getIconSize(stat)} text-gray-100" src="{base}icons/{stat.image}" alt={stat.name} />
 		<p
 			class="text-lg"
 			style="color: {stat.valueColor};text-shadow: 0 0 1px {stat.valueBorderColor};"

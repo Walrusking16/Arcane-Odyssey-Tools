@@ -3,6 +3,7 @@
 	import { createPopperActions } from 'svelte-popperjs';
 	import { createEventDispatcher, onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
+	import { base } from '$app/paths';
 
 	export let item;
 	export let placeholder = { image: '', name: 'Placeholder' };
@@ -68,7 +69,7 @@
 		{/if}
 		{#if isItemNull(item)}
 			<img
-				src="/gear/placeholders/{placeholder.image}.webp"
+				src="{base}/gear/placeholders/{placeholder.image}.webp"
 				alt={placeholder.name}
 				width="100"
 				height="100"
@@ -78,7 +79,7 @@
 			<p>{item.name}</p>
 		{:else}
 			<div class="relative w-full h-full flex justify-center items-center">
-				<img src={itemImage} alt={item.name} width="100" height="100" on:dragstart|preventDefault />
+				<img src="{base}{itemImage}" alt={item.name} width="100" height="100" on:dragstart|preventDefault />
 
 				{#if showName}
 					<p class="absolute w-full top-0 break-all bg-black/60 text-sm p-1">{item.name}</p>
