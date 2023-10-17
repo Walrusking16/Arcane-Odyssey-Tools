@@ -188,7 +188,7 @@
 		</div>
 		{#key forceChange}
 			<div class="flex flex-col md:flex-row-reverse justify-center items-center md:items-start space-y-2 md:space-y-0">
-				<div class="flex w-full md:ml-2 lg:w-1/6 xl:w-1/3">
+				<div class="w-full md:ml-2 lg:w-1/6 xl:w-1/3">
 					<TotalStats stats={getTotalStats($gearBuild)} />
 				</div>
 				<div class="grow flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 justify-center">
