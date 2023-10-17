@@ -55,7 +55,7 @@
 		{/if}
 	</div>
 	<div class="grid grid-cols-2 gap-2">
-		{#each item.gems as gem, i}
+		{#each item?.gems ?? [] as gem, i}
 			<div>
 				<GearSlot item={gem} {placeholder} showName={true} on:click={() => onClick(i)} />
 			</div>

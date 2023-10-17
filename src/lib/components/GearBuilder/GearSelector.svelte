@@ -1,12 +1,12 @@
 <script>
-	import { createEventDispatcher } from 'svelte';
+	import { createEventDispatcher, onMount } from 'svelte';
 	import GearSlot from '$lib/components/GearBuilder/GearSlot.svelte';
 	import { fade } from 'svelte/transition';
+	import { overlayActive } from '$lib/stores/overlayStore.js';
 
 	export let items = [];
 
 	export let label = 'Select an item';
-	export let showLabels = false;
 
 	let search = '';
 
@@ -14,11 +14,13 @@
 
 	function backgroundClicked() {
 		search = '';
+		overlayActive.set(false);
 		dispatch('close');
 	}
 
 	function itemSelected(event) {
 		search = '';
+		overlayActive.set(false);
 		dispatch('itemSelected', { item: event.detail.item });
 	}
 
@@ -30,6 +32,10 @@
 			return [];
 		}
 	};
+
+	onMount(() => {
+		overlayActive.set(true);
+	});
 
 	$: filteredItems = filterItems(search);
 
@@ -45,16 +51,21 @@
 </script>
 
 <div
-	class="absolute bg-black/40 w-screen h-screen inset-0 z-30"
+	class="fixed bg-black/40 w-screen h-screen inset-0 z-30"
 	in:fade={{ duration: 100 }}
 	out:fade={{ duration: 100 }}
 >
-	<button class="absolute w-screen h-screen" on:click={backgroundClicked} />
-	<div class="flex mt-4 justify-center items-center">
-		<div class="flex flex-col w-1/2 items-center space-y-4">
-			<div class="space-y-2">
-				<p class="bg-sky-800 text-4xl rounded-lg p-2 shadow-2xl text-white">{label}</p>
-				<label class="relative block">
+	<button class="absolute w-full h-full" on:click={backgroundClicked} />
+	<div class="flex mt-4 flex-col justify-center items-center">
+		<div class="flex flex-col w-3/4 items-center md:items-stretch space-y-4">
+			<div class="space-y-2 w-full">
+				<div class="w-full md:flex md:justify-center md:items-center">
+					<p class="bg-sky-800 text-center text-2xl md:text-4xl rounded-lg p-2 shadow-2xl text-white">{label}</p>
+				</div>
+			</div>
+
+			<div class="flex flex-col space-y-4 w-full items-center justify-center">
+				<label class="relative block md:w-96">
 					<span class="sr-only">Search</span>
 					<span class="absolute inset-y-0 left-0 flex items-center pl-2">
 						<svg
@@ -73,7 +84,7 @@
 						</svg>
 					</span>
 					<input
-						class="placeholder:italic placeholder:text-neutral-400 block bg-neutral-800 w-full border border-sky-700 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
+						class="text-neutral-50 placeholder:italic placeholder:text-neutral-300 block bg-neutral-700 w-full border-2 border-sky-600 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-400 focus:ring-sky-400 focus:ring-1"
 						placeholder="Search for an item"
 						type="text"
 						name="search"
@@ -81,16 +92,16 @@
 					/>
 				</label>
 			</div>
+		</div>
 
+		<div class="mt-4 w-full h-[calc(100vh-178px)]">
 			{#if filteredItems.length === 0}
 				<p class="bg-neutral-800 p-2 rounded text-red-500 font-bold">No items found</p>
 			{:else}
-				<div class="grid gap-4 grid-cols-8">
-					<div>
-						<GearSlot item={removeItem} on:click={itemSelected} />
-					</div>
+				<div class="w-full h-full overflow-y-scroll grid justify-items-center gap-4 grid-cols-2 md:grid-cols-4 lg:grid-cols-6 2xl:grid-cols-8">
+					<GearSlot item={removeItem} on:click={itemSelected} />
 					{#each filteredItems as item}
-						<GearSlot {item} showName={showLabels} on:click={itemSelected} />
+						<GearSlot {item} showName={true} on:click={itemSelected} />
 					{/each}
 				</div>
 			{/if}

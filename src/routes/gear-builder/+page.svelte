@@ -15,7 +15,6 @@
 	import GearCustomizer from '$lib/components/GearBuilder/GearCustomizer.svelte';
 	import { BaseItem } from '$lib/data/base/baseItem.js';
 
-	// TODO: Add enchants
 	// TODO: Add filters
 
 	// Cant wait to clean this up more when svelte 5 comes out
@@ -172,7 +171,7 @@
 </svelte:head>
 
 <div>
-	<div>
+	<div class="w-full h-full">
 		<div use:gearSelectorRef />
 		{#if showGearSelector}
 			<GearSelector
@@ -182,40 +181,44 @@
 			/>
 		{/if}
 	</div>
-	<div class="space-y-2">
+	<div class="space-y-4">
 		<div class="flex space-x-4">
 			<GearSorting />
 			<!--			<GearFiltering />-->
 		</div>
 		{#key forceChange}
-			<TotalStats stats={getTotalStats($gearBuild)} />
-			<div class="flex space-x-2 justify-center">
-				<div class="flex flex-col space-y-2">
-					{#each [0, 1, 2] as i}
+			<div class="flex flex-col md:flex-row-reverse justify-center items-center md:items-start space-y-2 md:space-y-0">
+				<div class="flex w-full md:ml-2 lg:w-1/6 xl:w-1/3">
+					<TotalStats stats={getTotalStats($gearBuild)} />
+				</div>
+				<div class="grow flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 justify-center">
+					<div class="flex flex-col space-y-2 items-center">
+						{#each [0, 1, 2] as i}
+							<GearCustomizer
+								item={$gearBuild.accessories[i] ?? null}
+								itemSlot={i}
+								placeholder={placeholders.accessory}
+								on:click={() => changeAccessory(i)}
+								on:change={gearChanged}
+							/>
+						{/each}
+					</div>
+					<div class="flex flex-col lg:space-y-2 items-center">
 						<GearCustomizer
-							item={$gearBuild.accessories[i] ?? null}
-							itemSlot={i}
-							placeholder={placeholders.accessory}
-							on:click={() => changeAccessory(i)}
+							item={$gearBuild.chestplate}
+							itemSlot={0}
+							placeholder={placeholders.chestplate}
+							on:click={changeChestplate}
 							on:change={gearChanged}
 						/>
-					{/each}
-				</div>
-				<div class="flex flex-col space-y-2">
-					<GearCustomizer
-						item={$gearBuild.chestplate}
-						itemSlot={0}
-						placeholder={placeholders.chestplate}
-						on:click={changeChestplate}
-						on:change={gearChanged}
-					/>
-					<GearCustomizer
-						item={$gearBuild.leggings}
-						itemSlot={0}
-						placeholder={placeholders.leggings}
-						on:click={changeLeggings}
-						on:change={gearChanged}
-					/>
+						<GearCustomizer
+							item={$gearBuild.leggings}
+							itemSlot={0}
+							placeholder={placeholders.leggings}
+							on:click={changeLeggings}
+							on:change={gearChanged}
+						/>
+					</div>
 				</div>
 			</div>
 		{/key}

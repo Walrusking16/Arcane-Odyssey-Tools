@@ -23,7 +23,7 @@
 <div class="flex space-x-2">
 	<GearSlot {item} {placeholder} on:click={handleClick} />
 
-	{#if item !== null}
+	{#if item !== null && item !== undefined}
 		<div class="space-y-2">
 			<GearModifiers {item} {itemSlot} on:change={onChange} />
 			<GemViewer {item} {itemSlot} on:change={onChange} />

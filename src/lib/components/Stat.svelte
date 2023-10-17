@@ -3,6 +3,7 @@
 	import { createPopperActions } from 'svelte-popperjs';
 	import { fade } from 'svelte/transition';
 	import { base } from '$app/paths';
+	import { isMobile } from '$lib/utils/screen.js';
 
 	export let stat;
 
@@ -34,7 +35,7 @@
 		</p>
 	</div>
 
-	{#if showStatInfo}
+	{#if showStatInfo && !isMobile()}
 		<div
 			class="z-20 text-center"
 			use:statContent

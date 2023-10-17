@@ -365,7 +365,7 @@ data.addItem(
 	120,
 	'A brightly colored cape imbued with some strange kind of power, it seems to grant the wearer great power... at a price.',
 	'gear/accessories/vatrachos_cape.webp',
-	[addStat(Stat.POWER, 28), addStat(Stat.DEFENSE, 72), addStat(Stat.DRAWBACK, 1)],
+	[addStat(Stat.POWER, 18), addStat(Stat.DEFENSE, 48), addStat(Stat.DRAWBACK, 1)],
 	2,
 	[SubType.CAPE]
 );
@@ -375,7 +375,7 @@ data.addItem(
 	120,
 	'A brightly colored helmet imbued with some strange kind of power, it seems to grant the wearer great power... at a price.',
 	'gear/accessories/vatrachos_helmet.webp',
-	[addStat(Stat.POWER, 28), addStat(Stat.DEFENSE, 72), addStat(Stat.DRAWBACK, 1)],
+	[addStat(Stat.POWER, 18), addStat(Stat.DEFENSE, 48), addStat(Stat.DRAWBACK, 1)],
 	2,
 	[SubType.HELMET]
 );

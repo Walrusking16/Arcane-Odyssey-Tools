@@ -9,7 +9,7 @@
 
 	const dispatch = createEventDispatcher();
 
-	let selected = item.modifiers?.[0];
+	let selected = item?.modifiers?.[0];
 
 	const options = {
 		'': 'None',

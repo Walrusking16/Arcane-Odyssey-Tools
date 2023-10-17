@@ -4,6 +4,7 @@
 	import { createEventDispatcher, onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import { base } from '$app/paths';
+	import { isMobile } from '$lib/utils/screen.js';
 
 	export let item;
 	export let placeholder = { image: '', name: 'Placeholder' };
@@ -23,7 +24,7 @@
 	}
 
 	function isItemNull(item) {
-		return item === null || item.name === '';
+		return item === null || item === undefined || item.name === '';
 	}
 
 	let imageIndex = 0;
@@ -46,7 +47,7 @@
 	});
 </script>
 
-<div>
+<div class="w-[100px] h-[100px]">
 	<div
 		class="bg-black/70 border border-gray-500 w-[100px] h-[100px] flex items-center justify-center relative text-center"
 	>
@@ -57,7 +58,7 @@
 			use:itemInfoRef
 			on:click|preventDefault={onClick}
 		/>
-		{#if showItemInfo && !isItemNull(item)}
+		{#if showItemInfo && !isItemNull(item) && !isMobile()}
 			<div
 				class="z-20 relative"
 				use:itemInfoContent
