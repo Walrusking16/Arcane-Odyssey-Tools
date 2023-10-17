@@ -17,6 +17,7 @@ export const ModifierData = {
 		apply: (stats, item) => {
 			let statIndex = 0;
 			const itemStats = [...item.baseStats, ...item.getGemStats()];
+			let statAdded = false;
 
 			while (statIndex < stats.length) {
 				const stat = stats[statIndex];
@@ -25,9 +26,13 @@ export const ModifierData = {
 					statIndex++;
 				} else {
 					item.extraStats.push(stat);
+					statAdded = true;
 					break;
 				}
 			}
+
+			if (!statAdded)
+				item.extraStats.push(stats[0]);
 
 			item.extraStats.push(addStat(Stat.INSANITY, 1));
 
