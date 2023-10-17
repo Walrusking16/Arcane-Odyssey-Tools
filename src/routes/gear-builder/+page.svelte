@@ -203,7 +203,7 @@
 							/>
 						{/each}
 					</div>
-					<div class="flex flex-col lg:space-y-2 items-center">
+					<div class="flex flex-col space-y-2 items-center">
 						<GearCustomizer
 							item={$gearBuild.chestplate}
 							itemSlot={0}
