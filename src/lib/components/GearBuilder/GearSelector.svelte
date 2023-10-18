@@ -94,11 +94,11 @@
 			</div>
 		</div>
 
-		<div class="mt-4 w-full h-[calc(100vh-178px)]">
+		<div class="mt-4 w-full flex justify-center items-center h-[calc(100vh-178px)] overflow-y-scroll">
 			{#if filteredItems.length === 0}
 				<p class="bg-neutral-800 p-2 rounded text-red-500 font-bold">No items found</p>
 			{:else}
-				<div class="w-full h-full overflow-y-scroll grid justify-items-center gap-4 grid-cols-2 md:grid-cols-4 lg:grid-cols-6 2xl:grid-cols-8">
+				<div class="w-fit h-full grid gap-4 grid-rows-6 grid-cols-2 md:grid-cols-4 lg:grid-cols-6 2xl:grid-cols-8">
 					<GearSlot item={removeItem} on:click={itemSelected} />
 					{#each filteredItems as item}
 						<GearSlot {item} showName={true} on:click={itemSelected} />
