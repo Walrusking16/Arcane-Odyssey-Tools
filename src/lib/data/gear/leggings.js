@@ -86,6 +86,15 @@ data.addItem(
 );
 
 data.addItem(
+	'Sunken Warrior Iron Boots',
+	120,
+	'A set of boots made out of arcanium metal that have spent hundreds of years underwater, causing their properties to change. They seem to constantly produce water.',
+	'gear/leggings/sunken_warrior_iron_boots.webp',
+	[addStat(Stat.DEFENSE, 153), addStat(Stat.ATTACK_SPEED, 26)],
+	2
+);
+
+data.addItem(
 	'Theurgist Pants',
 	120,
 	'The lower part of a robe once worn by a powerful mage, which seems to provide some kind of divine protection when worn. It seems to be designed to fit three socketed jewels instead of two.',

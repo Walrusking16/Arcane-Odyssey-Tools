@@ -1,5 +1,5 @@
 import { BaseData } from '$lib/data/base/baseData.js';
-import { Type } from '$lib/data/base/types.js';
+import { SubType, Type } from '$lib/data/base/types.js';
 import { addStat, Stat } from '$lib/data/base/stats.js';
 
 const data = new BaseData(Type.CHESTPLATE);
@@ -82,6 +82,15 @@ data.addItem(
 	'A set of armour made out of arcanium metal that has spent hundreds of years underwater, causing its properties to change. It seems to constantly produce water.',
 	'gear/chestplates/sunken_iron_armor.webp',
 	[addStat(Stat.DEFENSE, 204), addStat(Stat.ATTACK_SIZE, 36)],
+	2
+);
+
+data.addItem(
+	'Sunken Warrior Iron Armor',
+	120,
+	'A set of armour made out of arcanium metal that has spent hundreds of years underwater, causing its properties to change. It seems to constantly produce water.',
+	'gear/chestplates/sunken_warrior_iron_armor.webp',
+	[addStat(Stat.DEFENSE, 204), addStat(Stat.ATTACK_SPEED, 36)],
 	2
 );
 

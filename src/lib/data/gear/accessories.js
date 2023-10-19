@@ -329,6 +329,16 @@ data.addItem(
 );
 
 data.addItem(
+	'Sunken Warrior Iron Helmet',
+	120,
+	'A helmet made out of arcanium metal that has spent hundreds of years underwater, causing its properties to change. It seems to constantly produce water.',
+	'gear/accessories/sunken_warrior_iron_helmet.webp',
+	[addStat(Stat.DEFENSE, 153), addStat(Stat.ATTACK_SPEED, 26)],
+	2,
+	[SubType.HELMET]
+);
+
+data.addItem(
 	'The Lost Crown of Ravenna',
 	120,
 	'A crown made out of sun-forged bronze, a technique invented by the Samerians. It was specifically made for King Calvus IV, the Third King of Ravenna, and was stolen from him after he was killed in Ravenna Castello, at the heart of the Ravenna Realm in the Bronze Sea.',
