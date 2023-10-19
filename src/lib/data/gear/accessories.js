@@ -323,7 +323,7 @@ data.addItem(
 	120,
 	'A helmet made out of arcanium metal that has spent hundreds of years underwater, causing its properties to change. It seems to constantly produce water.',
 	'gear/accessories/sunken_iron_helmet.webp',
-	[addStat(Stat.DEFENSE, 153), addStat(Stat.ATTACK_SIZE, 18)],
+	[addStat(Stat.DEFENSE, 153), addStat(Stat.ATTACK_SIZE, 26)],
 	2,
 	[SubType.HELMET]
 );
