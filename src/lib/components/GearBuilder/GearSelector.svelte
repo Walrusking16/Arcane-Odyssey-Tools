@@ -98,7 +98,7 @@
 			{#if filteredItems.length === 0}
 				<p class="bg-neutral-800 p-2 rounded text-red-500 font-bold">No items found</p>
 			{:else}
-				<div class="w-fit h-full grid gap-4 grid-rows-6 grid-cols-2 md:grid-cols-4 lg:grid-cols-6 2xl:grid-cols-8">
+				<div class="w-fit h-full grid gap-4 grid-cols-2 md:grid-cols-4 lg:grid-rows-6 lg:grid-cols-6 2xl:grid-cols-8">
 					<GearSlot item={removeItem} on:click={itemSelected} />
 					{#each filteredItems as item}
 						<GearSlot {item} showName={true} on:click={itemSelected} />
