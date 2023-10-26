@@ -8,11 +8,11 @@ export const ModifierData = {
 	[Modifier.ATLANTEAN]: {
 		stats: [
 			addStat(Stat.POWER, 12),
-			addStat(Stat.DEFENSE, 97),
-			addStat(Stat.ATTACK_SIZE, 18),
-			addStat(Stat.ATTACK_SPEED, 18),
-			addStat(Stat.AGILITY, 18),
-			addStat(Stat.INTENSITY, 18)
+			addStat(Stat.DEFENSE, 107),
+			addStat(Stat.ATTACK_SIZE, 36),
+			addStat(Stat.ATTACK_SPEED, 36),
+			addStat(Stat.AGILITY, 36),
+			addStat(Stat.INTENSITY, 36)
 		],
 		apply: (stats, item) => {
 			let statIndex = 0;
